@@ -16,6 +16,9 @@ namespace GRIDCITY
         public Transform buildingPrefab;
         public BuildingProfile[] profileArray;
 
+        //3D Array
+        public bool[,,] cityArray = new bool[11,11,11];
+
         public static CityManager Instance
         {
             get
@@ -61,6 +64,30 @@ namespace GRIDCITY
 		void Update () {
 			
 		}
+
+        public bool CheckSlot(int x, int y, int z)
+        {
+            if (x > 10 || x < 0 || y > 10 || y < 0 || z > 10 || z < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return cityArray[x, y, z];
+            }
+        }
+
+        public void SetSlot(int x, int y, int z, bool occupied)
+        {
+            if (x > 10 || x < 0 || y > 10 || y < 0 || z > 10 || z < 0)
+            {
+                //do nothing
+            }
+            else
+            {
+                cityArray[x, y, z] = occupied;
+            }
+        }
 
 		#endregion
 	#endregion

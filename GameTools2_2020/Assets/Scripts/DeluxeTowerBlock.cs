@@ -52,12 +52,22 @@ namespace GRIDCITY
         {
             cityManager = CityManager.Instance;
             Transform child;
-            if (recursionLevel==0)
+            Vector3 myPos = transform.position;
+
+            if (recursionLevel == 0)
             {
-                int meshNum = myProfile.groundBlocks.Length;
-                int matNum = myProfile.groundMaterials.Length;
-                myMesh=myProfile.groundBlocks[Random.Range(0, meshNum)];
-                myMaterial = myProfile.groundMaterials[Random.Range(0, matNum)];
+                if (!cityManager.CheckSlot((int)myPos.x + 5, (int)myPos.y, (int)myPos.z + 5))
+                {
+                    int meshNum = myProfile.groundBlocks.Length;
+                    int matNum = myProfile.groundMaterials.Length;
+                    myMesh = myProfile.groundBlocks[Random.Range(0, meshNum)];
+                    myMaterial = myProfile.groundMaterials[Random.Range(0, matNum)];
+                }
+                else
+                {
+                    Destroy(this.gameObject);
+                    Debug.Log("destroy tower");
+                }
             }
 
             myMeshFilter.mesh = myMesh;
@@ -67,17 +77,23 @@ namespace GRIDCITY
             {
                 if (recursionLevel == maxLevel-1)
                 {
-                    child = Instantiate(basePrefab, transform.position + Vector3.up, Quaternion.identity, this.transform);
-                    int meshNum = myProfile.roofBlocks.Length;
-                    int matNum = myProfile.roofMaterials.Length;
-                    child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.roofMaterials[Random.Range(0, matNum)], myProfile.roofBlocks[Random.Range(0, meshNum)]);
+                    if (!cityManager.CheckSlot((int)myPos.x + 5, (int)myPos.y + 1, (int)myPos.z + 5))
+                    {
+                        child = Instantiate(basePrefab, transform.position + Vector3.up, Quaternion.identity, this.transform);
+                        int meshNum = myProfile.roofBlocks.Length;
+                        int matNum = myProfile.roofMaterials.Length;
+                        child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.roofMaterials[Random.Range(0, matNum)], myProfile.roofBlocks[Random.Range(0, meshNum)]);
+                    }
                 }
                 else
                 {
-                    child = Instantiate(basePrefab, transform.position + Vector3.up, Quaternion.identity, this.transform);
-                    int meshNum = myProfile.mainBlocks.Length;
-                    int matNum = myProfile.mainMaterials.Length;
-                    child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
+                    if (!cityManager.CheckSlot((int)myPos.x + 5, (int)myPos.y + 1, (int)myPos.z + 5))
+                    {
+                        child = Instantiate(basePrefab, transform.position + Vector3.up, Quaternion.identity, this.transform);
+                        int meshNum = myProfile.mainBlocks.Length;
+                        int matNum = myProfile.mainMaterials.Length;
+                        child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
+                    }
                 }
             }
         }
@@ -93,4 +109,3 @@ namespace GRIDCITY
 
     }
 }
-
