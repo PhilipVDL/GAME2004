@@ -19,7 +19,7 @@
 - Buckland, Mat (2005) Programming Game AI by Example, Worldware Publishing Inc
 
 
-# Week 3
+# Week 3.0.1
 
 ## Learning Objectives:
 - Version Control Systems: basics of working with Git repositories
