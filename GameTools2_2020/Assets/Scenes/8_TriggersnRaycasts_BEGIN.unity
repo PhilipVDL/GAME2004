@@ -454,6 +454,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 165.75, y: 1283.7, z: 0}
+--- !u!4 &958417557 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1926324756732955345, guid: de08e18f03ff14f46974a33bda4e63bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 3504655158161842172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +652,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!4 &1361660852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1926324754847107284, guid: de08e18f03ff14f46974a33bda4e63bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 3504655158161842172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1487182206
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +945,52 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HostileTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020382094380073319, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635706218413717605, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: turretSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635706218413717605, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: gunXform
+      value: 
+      objectReference: {fileID: 1361660852}
+    - target: {fileID: 7635706218413717605, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: domeXform
+      value: 
+      objectReference: {fileID: 958417557}
+    - target: {fileID: 7635706218413717605, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: turretSpeedOn
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635706218413717605, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: turretSpeedOff
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635706218413717605, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 2718240877631730410, guid: 8cee7f1cb98c3d849b7fc23916c01ed2,
+        type: 3}
+    - target: {fileID: 7635706218413717605, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: rayCastMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635706218413717605, guid: de08e18f03ff14f46974a33bda4e63bc,
+        type: 3}
+      propertyPath: gunInterval
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8739847160529579705, guid: de08e18f03ff14f46974a33bda4e63bc,
         type: 3}

@@ -49,9 +49,15 @@ namespace GRIDCITY
 		void Start ()
         {
             //UPDATING PLANNING ARRAY TO ACCOUNT FOR TURRET
+            for (int i = -3; i < 3; i++)
+            {
+                for (int j = -3; j < 4; j++)
+                {
+                    SetSlot(i + 7, 0, j + 7, true);
+                }
+            }
+            //CITY BUILDINGS:
 
-
-            //CITY BUILDINGS
             for (int i=-7;i<8;i+=3)
             {
                 for (int j=-7;j<8;j+=3)
@@ -72,6 +78,7 @@ namespace GRIDCITY
             {
                 return cityArray[x, y, z];
             }
+
         }
 
         public void SetSlot(int x, int y, int z, bool occupied)
@@ -80,6 +87,7 @@ namespace GRIDCITY
             {
                 cityArray[x, y, z] = occupied;
             }
+
         }
 
         #endregion
