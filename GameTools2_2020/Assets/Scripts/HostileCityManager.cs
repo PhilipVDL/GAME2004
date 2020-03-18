@@ -49,11 +49,11 @@ namespace GRIDCITY
 		void Start ()
         {
             //UPDATING PLANNING ARRAY TO ACCOUNT FOR TURRET
-            for (int ix = -3; ix < 3; ix++)
+            for (int i = -3; i < 3; i++)
             {
-                for (int iz = -3; iz < 4; iz++)
+                for (int j = -3; j < 4; j++)
                 {
-                    SetSlot(ix + 7, 0, iz + 7, true);
+                    SetSlot(i + 7, 0, j + 7, true);
                 }
             }
             //CITY BUILDINGS:

@@ -2,56 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretController : MonoBehaviour
-{
-    public bool alerted = false;
+public class TurretController : MonoBehaviour {
 
+    #region Fields
+    public bool alerted;
+    public Transform aimTarget;
     public Transform gunXform;
     public Transform domeXform;
-    public Transform aimTarget;
     public GameObject bulletPrefab;
-    public float gunInterval = 0.1f;
-    private float gunTimer = 0.0f;
+    public float turretSpeedOn;
+    public float turretSpeedOff;
+    public LayerMask rayCastMask;
+    public float gunInterval;
 
-    public LayerMask raycastMask;
+    private float interpolator = 1f;
+    private float gunTimer = 0f;
+    #endregion
 
-    private float interpolator = 1.0f;
+    #region Properties	
+    #endregion
 
-    private void Start()
-    {
+    #region Methods
+    #region Unity Methods
+
+    // Use this for internal initialization
+    void Awake () {
+		
+	}
+		
+	// Use this for external initialization
+	void Start () {
         if (aimTarget == null)
             aimTarget = GameObject.FindWithTag("Player").transform;
     }
-
-    private void Update()
-    {
+		
+	// Update is called once per frame
+	void Update () {
         gunTimer -= Time.deltaTime;
 
         if (alerted)
         {
-            interpolator = Mathf.Lerp(interpolator, 1.0f, 0.1f);
+            interpolator = Mathf.Lerp(interpolator, 1.0f, turretSpeedOn);
 
             RaycastHit hit;
-            // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(gunXform.position, gunXform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, raycastMask))
+            if(Physics.Raycast(gunXform.position, gunXform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, rayCastMask))
             {
-                if ((hit.collider.gameObject.tag=="Player")&&(gunTimer<0.0f))
+                if (hit.collider.tag == ("Player") && gunTimer < 0)
                 {
                     Instantiate(bulletPrefab, gunXform.position, Quaternion.identity);
                     gunTimer = gunInterval;
                 }
-
             }
         }
         else
         {
-            interpolator = Mathf.Lerp(interpolator, 0.0f, 0.1f);
+            interpolator = Mathf.Lerp(interpolator, 0.0f, turretSpeedOff);
         }
-
-        //if (interpolator>0.9f)
-        //{
-        //    Instantiate(bulletPrefab, gunXform.position, Quaternion.identity);
-        //}
 
         Vector3 aimVec = aimTarget.position - gunXform.position;
         Quaternion gunQuat = Quaternion.LookRotation(aimVec);
@@ -63,7 +69,7 @@ public class TurretController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Player")
+        if (other.tag == "Player")
             alerted = true;
     }
 
@@ -71,4 +77,6 @@ public class TurretController : MonoBehaviour
     {
         alerted = false;
     }
+    #endregion
+    #endregion
 }

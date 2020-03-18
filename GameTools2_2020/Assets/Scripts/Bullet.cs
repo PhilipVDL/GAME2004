@@ -4,35 +4,30 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Transform aimTarget;
-    private Vector3 direction;
+    private Vector3 aimVec;
+    private Transform aimTarget;
+    public float speed = 10f;
 
-    public  float speed = 0.1f;
-    // Start is called before the first frame update
     void Start()
     {
-        if (aimTarget == null)
+        Destroy(this.gameObject, 5f);
+        if(aimTarget == null)
+        {
             aimTarget = GameObject.FindWithTag("Player").transform;
-
-        Vector3 targetPosition = aimTarget.position;
-        Vector3 initialPosition = transform.position;
-        direction = targetPosition - initialPosition;
-
-        Destroy(this.gameObject, 7.0f);
+        }
+        aimVec = aimTarget.position - transform.position;
     }
 
-    private void Update()
+    void Update()
     {
-        transform.position += Time.deltaTime * direction.normalized * speed;
+        transform.position += aimVec * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.tag=="Player")
+        if(other.tag == "Player")
         {
-            Debug.Log("Hit!");
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
     }
 }
