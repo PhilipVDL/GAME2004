@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GRIDCITY
 {
-    public class DeluxeTowerBlock : MonoBehaviour
+    public class HostileTowerBlock : MonoBehaviour
     {
 
         #region Fields
@@ -12,7 +12,7 @@ namespace GRIDCITY
         public Transform basePrefab;
         public int recursionLevel = 0;
         private int maxLevel = 3;
-        private CityManager cityManager;
+        private HostileCityManager cityManager;
         private Renderer myRenderer;
         private MeshFilter myMeshFilter;
         private Mesh myMesh;
@@ -55,7 +55,7 @@ namespace GRIDCITY
             int x = Mathf.RoundToInt(transform.position.x + 7.0f);
             int y = Mathf.RoundToInt(transform.position.y);
             int z = Mathf.RoundToInt(transform.position.z + 7.0f);
-            cityManager = CityManager.Instance;
+            cityManager = HostileCityManager.Instance;
 
             Transform child;
             if (recursionLevel == 0)
@@ -86,7 +86,7 @@ namespace GRIDCITY
                         child = Instantiate(basePrefab, transform.position + Vector3.up*1.05f, Quaternion.identity, this.transform);
                         int meshNum = myProfile.roofBlocks.Length;
                         int matNum = myProfile.roofMaterials.Length;
-                        child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.roofMaterials[Random.Range(0, matNum)], myProfile.roofBlocks[Random.Range(0, meshNum)]);
+                        child.GetComponent<HostileTowerBlock>().Initialize(recursionLevel + 1, myProfile.roofMaterials[Random.Range(0, matNum)], myProfile.roofBlocks[Random.Range(0, meshNum)]);
 
                         cityManager.SetSlot(x, y + 1, z, true);
                     }
@@ -98,7 +98,7 @@ namespace GRIDCITY
                         child = Instantiate(basePrefab, transform.position + Vector3.up * 1.05f, Quaternion.identity, this.transform);
                         int meshNum = myProfile.mainBlocks.Length;
                         int matNum = myProfile.mainMaterials.Length;
-                        child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
+                        child.GetComponent<HostileTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
 
                         cityManager.SetSlot(x, y + 1, z, true);
                     }

@@ -4,24 +4,19 @@ using UnityEngine;
 
 namespace GRIDCITY
 {
-    public enum blockType { Block, Arches, Columns, Dishpivot, DomeWithBase, HalfDome, SlitDome, Slope, Tile};
-
-	public class CityManager : MonoBehaviour
+	public class HostileCityManager : MonoBehaviour
     {
 
         #region Fields
-        private static CityManager _instance;
+        private static HostileCityManager _instance;
         public Mesh[] meshArray;
-        public Material[] materialArray;
         public GameObject buildingPrefab;
-        public GameObject treePrefab;
         public BuildingProfile[] profileArray;
 
-        public BuildingProfile wallProfile;
 
         private bool[,,] cityArray = new bool [15,15,15];   //increased array size to allow for larger city volume
 
-        public static CityManager Instance
+        public static HostileCityManager Instance
         {
             get
             {
@@ -46,50 +41,32 @@ namespace GRIDCITY
             else
             {
                 Destroy(gameObject);
-                Debug.LogError("Multiple CityManager instances in Scene. Destroying clone!");
+                Debug.LogError("Multiple HostileCityManager instances in Scene. Destroying clone!");
             };
         }
 		
 		// Use this for external initialization
 		void Start ()
         {
-            //UPDATING PLANNING ARRAY TO ACCOUNT FOR MANUALLY PLACED|CITY GATE
-            for (int ix=-1; ix <2; ix++)
+            //UPDATING PLANNING ARRAY TO ACCOUNT FOR TURRET
+            for (int ix = -3; ix < 3; ix++)
             {
-                int iz = -7;
-                for (int iy=0;iy<3;iy++)
+                for (int iz = -3; iz < 4; iz++)
                 {
-                    SetSlot(ix + 7, iy, iz + 7, true);
+                    SetSlot(ix + 7, 0, iz + 7, true);
                 }
             }
-
-            //BUILD CITY WALLS - add your code below
-            
-            for (int i=-7 ; i < 8 ; i += 14)
-            {
-                for (int j = -7; j < 8; j += 1)
-                {
-                    Instantiate(buildingPrefab, new Vector3(i, 0.05f, j), Quaternion.identity).GetComponent<DeluxeTowerBlock>().SetProfile(wallProfile);
-                }
-                for (int j = -6; j < 7; j += 1)
-                {
-                    Instantiate(buildingPrefab, new Vector3(j, 0.05f, i), Quaternion.identity).GetComponent<DeluxeTowerBlock>().SetProfile(wallProfile);
-                }
-            }
-            
-
             //CITY BUILDINGS:
-            
-			for (int i=-4;i<5;i+=2)
+
+            for (int i=-7;i<8;i+=3)
             {
-                for (int j=-4;j<5;j+=2)
+                for (int j=-7;j<8;j+=3)
                 {
                     int random = Random.Range(0, profileArray.Length);
-                    Instantiate(buildingPrefab, new Vector3(i, 0.05f, j), Quaternion.identity).GetComponent<DeluxeTowerBlock>().SetProfile(profileArray[random]);                 
+                    Instantiate(buildingPrefab, new Vector3(i, 0.05f, j), Quaternion.identity).GetComponent<HostileTowerBlock>().SetProfile(profileArray[random]);                 
                 }
             }
-            
-            
+                      
 		}
 		
 		#endregion
