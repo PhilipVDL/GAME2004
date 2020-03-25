@@ -1,15 +1,16 @@
 # GAME2004 Game Tools II 2020
 
-## ONLINE LECTURE
-- The lectures will be delivered online via the TU984 Discord for the time being. 
-
-## Resources
-- [Course Notes](https://drive.google.com/open?id=1zyDfgHkcRRDofioTPWzugJl4dyVEBFIK)
-
 ## Contact
 * Email: robbogucki@gmail.com / rob.bogucki@tudublin.ie
 
+## ONLINE LECTURE
+- The lectures will be delivered online via the TU984 Discord for the time being. 
+
+## Final Project
+- [Project Brief](https://drive.google.com/open?id=1-92K9HQPE5HhxVSYHcNwUxniUWW5Kp6v)
+
 ## Resources
+- [Course Notes](https://drive.google.com/open?id=1zyDfgHkcRRDofioTPWzugJl4dyVEBFIK)
 
 #### Unity/C# Scripting:
 - [Unity User Manual](https://docs.unity3d.com/Manual/index.html)
@@ -23,10 +24,22 @@
 - Ferrone, Harrison (2019) Learning C# by Developing Games with Unity 2019, 4th Ed., Packt Publishing
 - Buckland, Mat (2005) Programming Game AI by Example, Worldware Publishing Inc
 
+# Week 7
+
+## "Coding Games"
+- exploring visual programming, creative coding exercises, gamified coding practice
+
+## Lecture Slides
+- ["Coding Games"](https://drive.google.com/open?id=1Dx9D2oO_037fign4brBK4slYWSZoqCR1)
+
 # Week 6 
 
 ## Learning Objectives:
 - Unity Physics continued: collider triggers, layers, raycasting - practical exercises
+
+## Lecture Videos
+- [Part I](https://youtu.be/Ud9mNRj8zIs)
+- [Part II](https://youtu.be/hoCkcMobmf0)
 
 ## Lecture Slides
 - [Unity Physics ctd.](https://drive.google.com/open?id=11r1gMmTOhBr9vp_ysd6-XZCtjRao4494)
