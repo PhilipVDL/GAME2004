@@ -5,18 +5,11 @@ using UnityEngine.AI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    private NavMeshAgent navAgent;
-    //I don't know what's going on
-
-    // Start is called before the first frame update
-    void Start()
+    void BakeNavMesh()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            
+        }
     }
 }
