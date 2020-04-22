@@ -9,6 +9,11 @@
 ## Final Project
 - [Project Brief](https://drive.google.com/open?id=1-92K9HQPE5HhxVSYHcNwUxniUWW5Kp6v)
 
+## Turtle Art results
+![Class poster](Poster.jpg)
+- [Results image](PosterResults.jpg)
+- [Hi-res poster](Poster.png)
+
 ## Resources
 - [Course Notes](https://drive.google.com/open?id=1zyDfgHkcRRDofioTPWzugJl4dyVEBFIK)
 
@@ -24,10 +29,39 @@
 - Ferrone, Harrison (2019) Learning C# by Developing Games with Unity 2019, 4th Ed., Packt Publishing
 - Buckland, Mat (2005) Programming Game AI by Example, Worldware Publishing Inc
 
+# Week 9
+
+## AI - Navigation. Learning Objectives:
+- Unity AI:Navigation
+- NavMeshes: NPC pathfinding and obstacle avoidance
+- NavMeshComponents for procedural level NavMesh realtime baking
+
+## Lecture Slides
+- ["AI: Navigation"](https://drive.google.com/open?id=114y3rta3tNDM56ZflBrWaCtF8NUs5Y47)
+
+# Week 8
+
+## Animation
+- [Unity project - completed lesson](https://github.com/rob-o-tron/AnimationProject)
+
+## Lecture Video
+- [Animation lecture](https://youtu.be/G8s9rnH_8vo)
+
+## Assets:
+- [Unitypackage with animations](https://drive.google.com/open?id=1iv6Pa4IT1ZcN2vzWdWCvgVj-gN9F4oAS)
+
+## Lecture Slides
+- ["Unity Animation"](https://drive.google.com/open?id=1-nRd-jrOk8Qd9u5goVvcWJiFPHlQDVQS)
+
 # Week 7
 
 ## "Coding Games"
 - exploring visual programming, creative coding exercises, gamified coding practice
+
+## Lecture Videos
+- [Part I](https://youtu.be/SxAr7z800gY)
+- [Part II](https://youtu.be/8fdD8Wn8wv8)
+- [Part III - additional livecoding](https://youtu.be/XigqdAfVt_M)
 
 ## Lecture Slides
 - ["Coding Games"](https://drive.google.com/open?id=1Dx9D2oO_037fign4brBK4slYWSZoqCR1)
